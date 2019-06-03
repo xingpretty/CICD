@@ -1,0 +1,42 @@
+spring:
+  jpa:
+    open-in-view: false
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    # Driver未实现Clob特性，关闭特性侦测
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.spatial.dialect.postgis.PostgisDialect
+  datasource:
+    url: jdbc:postgresql://localhost:5432/xingdb
+    username: root
+    password: wang88xing
+  database:
+    driverClassName: org.postgresql.Driver
+  kafka:
+    producer:
+      bootstrap-servers: 127.0.0.1:9092
+# actuator
+management:
+  port: 8888
+  context-path: "/admin"
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#        include: loggers,sessions
+# 日志级别配置
+logging:
+  level:
+#    root: DEBUG
+    xing:
+      start:
+        game: DEBUG
+#
+#    driver-class-name: org.postgresql.Driver

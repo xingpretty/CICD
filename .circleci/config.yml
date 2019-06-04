@@ -4,10 +4,10 @@ jobs:
     working_directory: ~/game
     docker:
       - image: circleci/openjdk:8-jdk-browsers
-#      - image: circleci/postgres:9.6.3-alpine
-#        environment:
-#          POSTGRES_USER: root
-#          POSTGRES_DB: circle_test
+    #      - image: circleci/postgres:9.6.3-alpine
+    #        environment:
+    #          POSTGRES_USER: root
+    #          POSTGRES_DB: circle_test
     steps:
       - checkout
       - restore_cache:
@@ -17,7 +17,7 @@ jobs:
           paths:
             - ~/.m2
           key: game-{{ checksum "pom.xml" }}
-      - run: mvn package
+      - run: mvn package -Dmaven.test.skip=true
       - store_test_results:
           path: target/surefire-reports
       - store_artifacts:

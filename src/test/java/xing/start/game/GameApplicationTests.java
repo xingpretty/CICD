@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GameApplicationTests {
 	@Test
 	public void contextLoads() throws Exception{
-		System.out.println(System.in.read());
+//		System.out.println(System.in.read());
+		System.out.println("loading loaded");
 	}
 }
